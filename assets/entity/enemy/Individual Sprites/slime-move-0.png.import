@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbrs2pxoe1icu"
-path="res://.godot/imported/Skeleton Idle.png-6f1c661dd96f2d5d68a6ad70afea47f3.ctex"
+uid="uid://bp8v2vexipkqy"
+path="res://.godot/imported/slime-move-0.png-fcd9643d62b9e05801bf28b63fd96e7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/enemy/Skeleton Idle.png"
-dest_files=["res://.godot/imported/Skeleton Idle.png-6f1c661dd96f2d5d68a6ad70afea47f3.ctex"]
+source_file="res://assets/entity/enemy/Individual Sprites/slime-move-0.png"
+dest_files=["res://.godot/imported/slime-move-0.png-fcd9643d62b9e05801bf28b63fd96e7f.ctex"]
 
 [params]
 

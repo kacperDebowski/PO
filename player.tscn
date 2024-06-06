@@ -1,13 +1,19 @@
-[gd_scene load_steps=33 format=3 uid="uid://ceufau7jgd7i3"]
+[gd_scene load_steps=39 format=3 uid="uid://ceufau7jgd7i3"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_laphl"]
 [ext_resource type="Texture2D" uid="uid://bf7wgfkgtr305" path="res://assets/entity/player/adventurer-idle-01.png" id="2_8ar42"]
+[ext_resource type="Texture2D" uid="uid://cft144a4vyg2e" path="res://assets/entity/player/adventurer-attack2-00.png" id="2_e7bni"]
 [ext_resource type="Texture2D" uid="uid://chlwaehwk8ahu" path="res://assets/entity/player/adventurer-slide-00.png" id="2_yy1ja"]
+[ext_resource type="Texture2D" uid="uid://7o7y2r18nv7h" path="res://assets/entity/player/adventurer-attack2-01.png" id="3_3mg6e"]
 [ext_resource type="Texture2D" uid="uid://cojc8hdlst4mw" path="res://assets/entity/player/adventurer-idle-02.png" id="3_m7bfb"]
+[ext_resource type="Texture2D" uid="uid://ct1obpyhas4rq" path="res://assets/entity/player/adventurer-attack2-02.png" id="4_o0iub"]
 [ext_resource type="Texture2D" uid="uid://dhw3i2odjoocb" path="res://assets/entity/player/adventurer-idle-03.png" id="4_v3npx"]
 [ext_resource type="Texture2D" uid="uid://bi73en04366sa" path="res://assets/entity/player/adventurer-run-00.png" id="5_6nm0o"]
+[ext_resource type="Texture2D" uid="uid://cykv0iinre86i" path="res://assets/entity/player/adventurer-attack2-03.png" id="5_j0jlf"]
+[ext_resource type="Texture2D" uid="uid://iiymfgk8nsjb" path="res://assets/entity/player/adventurer-attack2-04.png" id="6_4kct8"]
 [ext_resource type="Texture2D" uid="uid://bkwhh8w5igj25" path="res://assets/entity/player/adventurer-run-01.png" id="6_x56yp"]
 [ext_resource type="Texture2D" uid="uid://ckjjoyg5olopv" path="res://assets/entity/player/adventurer-run-02.png" id="7_e5kbr"]
+[ext_resource type="Texture2D" uid="uid://1bk8jsq75lqi" path="res://assets/entity/player/adventurer-attack2-05.png" id="7_w7cwd"]
 [ext_resource type="Texture2D" uid="uid://bujnrms7kbrjy" path="res://assets/entity/player/adventurer-run-03.png" id="8_l2bty"]
 [ext_resource type="Texture2D" uid="uid://c7lu4toj1leg7" path="res://assets/entity/player/adventurer-run-04.png" id="9_8mg4t"]
 [ext_resource type="Texture2D" uid="uid://bcd331jy5v1pm" path="res://assets/entity/player/adventurer-run-05.png" id="10_iqjmy"]
@@ -107,6 +113,29 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e7bni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3mg6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o0iub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j0jlf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4kct8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w7cwd")
+}],
+"loop": true,
+"name": &"slash",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cif7e"]
@@ -134,7 +163,7 @@ shape = SubResource("RectangleShape2D_6sg21")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-28, 36)
 sprite_frames = SubResource("SpriteFrames_sb4ni")
-animation = &"idle"
+animation = &"slash"
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -265,7 +294,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
-text = "                                                                                                                                                                                                        Level:"
+text = "                                                                                                                                      Level:"
 horizontal_alignment = 3
 vertical_alignment = 1
 
@@ -291,6 +320,26 @@ theme_override_constants/outline_size = 35
 theme_override_font_sizes/font_size = 70
 text = "NIE ZYJESZ
 		R - RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="winLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 97.0
+offset_bottom = 418.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.920641, 0.608684)
+theme = ExtResource("12_53iuu")
+theme_override_colors/font_color = Color(0.843911, 0.845238, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 35
+theme_override_font_sizes/font_size = 70
+text = "WYGRAŁEŚ!
+ BRAWO"
 horizontal_alignment = 1
 vertical_alignment = 1
 

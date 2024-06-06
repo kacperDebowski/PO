@@ -557,6 +557,7 @@ scenes/3/scene = ExtResource("5_j3x4m")
 scenes/4/scene = ExtResource("6_myrtq")
 scenes/5/scene = ExtResource("7_3vm81")
 scenes/6/scene = ExtResource("8_3imw2")
+scenes/7/scene = ExtResource("3_nxmux")
 
 [sub_resource type="TileSet" id="TileSet_g2mix"]
 physics_layer_0/collision_layer = 1
