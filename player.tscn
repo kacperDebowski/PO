@@ -1,0 +1,297 @@
+[gd_scene load_steps=33 format=3 uid="uid://ceufau7jgd7i3"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_laphl"]
+[ext_resource type="Texture2D" uid="uid://bf7wgfkgtr305" path="res://assets/entity/player/adventurer-idle-01.png" id="2_8ar42"]
+[ext_resource type="Texture2D" uid="uid://chlwaehwk8ahu" path="res://assets/entity/player/adventurer-slide-00.png" id="2_yy1ja"]
+[ext_resource type="Texture2D" uid="uid://cojc8hdlst4mw" path="res://assets/entity/player/adventurer-idle-02.png" id="3_m7bfb"]
+[ext_resource type="Texture2D" uid="uid://dhw3i2odjoocb" path="res://assets/entity/player/adventurer-idle-03.png" id="4_v3npx"]
+[ext_resource type="Texture2D" uid="uid://bi73en04366sa" path="res://assets/entity/player/adventurer-run-00.png" id="5_6nm0o"]
+[ext_resource type="Texture2D" uid="uid://bkwhh8w5igj25" path="res://assets/entity/player/adventurer-run-01.png" id="6_x56yp"]
+[ext_resource type="Texture2D" uid="uid://ckjjoyg5olopv" path="res://assets/entity/player/adventurer-run-02.png" id="7_e5kbr"]
+[ext_resource type="Texture2D" uid="uid://bujnrms7kbrjy" path="res://assets/entity/player/adventurer-run-03.png" id="8_l2bty"]
+[ext_resource type="Texture2D" uid="uid://c7lu4toj1leg7" path="res://assets/entity/player/adventurer-run-04.png" id="9_8mg4t"]
+[ext_resource type="Texture2D" uid="uid://bcd331jy5v1pm" path="res://assets/entity/player/adventurer-run-05.png" id="10_iqjmy"]
+[ext_resource type="Theme" uid="uid://smqfvs5ksuj5" path="res://assets/main/player.tres" id="12_53iuu"]
+[ext_resource type="Texture2D" uid="uid://dpr4cib0k8ve6" path="res://assets/tileset/items and trap_animation/coin/coin_1.png" id="13_1eye2"]
+[ext_resource type="Texture2D" uid="uid://d0y8osvnecyb1" path="res://assets/tileset/items and trap_animation/keys/keys_1_1.png" id="13_aoxlr"]
+[ext_resource type="FontFile" uid="uid://i1n3168al4c8" path="res://assets/fonts/static/PixelifySans-Regular.ttf" id="13_i6u0o"]
+[ext_resource type="Texture2D" uid="uid://dy1hesvs4ru25" path="res://assets/tileset/items and trap_animation/keys/keys_2_1.png" id="14_hlml0"]
+[ext_resource type="Texture2D" uid="uid://cusfnkluqjtrd" path="res://assets/tileset/items and trap_animation/flasks/flasks_4_1.png" id="16_wj2t5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sg21"]
+size = Vector2(18, 12.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxjou"]
+atlas = ExtResource("2_yy1ja")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j1mt"]
+atlas = ExtResource("2_8ar42")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45l6q"]
+atlas = ExtResource("3_m7bfb")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf7we"]
+atlas = ExtResource("4_v3npx")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kv8gh"]
+atlas = ExtResource("5_6nm0o")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7yr7"]
+atlas = ExtResource("6_x56yp")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhq3a"]
+atlas = ExtResource("7_e5kbr")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07odp"]
+atlas = ExtResource("8_l2bty")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xbk8"]
+atlas = ExtResource("9_8mg4t")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvyqf"]
+atlas = ExtResource("10_iqjmy")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sb4ni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxjou")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j1mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45l6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf7we")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kv8gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7yr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhq3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07odp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xbk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvyqf")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cif7e"]
+size = Vector2(18, 31)
+
+[sub_resource type="Theme" id="Theme_hhc75"]
+default_font = ExtResource("13_i6u0o")
+
+[sub_resource type="Theme" id="Theme_5fpw0"]
+default_font = ExtResource("13_i6u0o")
+
+[node name="player" type="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(335, 159)
+script = ExtResource("1_laphl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-29, 37)
+zoom = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-29, 47.25)
+shape = SubResource("RectangleShape2D_6sg21")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-28, 36)
+sprite_frames = SubResource("SpriteFrames_sb4ni")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(3, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-32, 38)
+shape = SubResource("RectangleShape2D_cif7e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 1152.0
+offset_bottom = 46.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("12_53iuu")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_hhc75")
+
+[node name="CoinInfo" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/CoinInfo"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme = SubResource("Theme_5fpw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/CoinInfo"]
+position = Vector2(14, 8)
+scale = Vector2(2.125, 2.1875)
+texture = ExtResource("13_1eye2")
+
+[node name="CoinCount" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/CoinInfo"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "0"
+vertical_alignment = 1
+
+[node name="GoldKeyInfo" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/GoldKeyInfo"]
+position = Vector2(-22, 19)
+scale = Vector2(3.0625, 2.53125)
+texture = ExtResource("13_aoxlr")
+
+[node name="GoldKeyCount" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/GoldKeyInfo"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "0"
+
+[node name="SilverKeyInfo" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/SilverKeyInfo"]
+position = Vector2(-20, 20)
+scale = Vector2(2.65625, 2.59375)
+texture = ExtResource("14_hlml0")
+
+[node name="SilverKeyCount" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/SilverKeyInfo"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "0"
+
+[node name="PotionInfo" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/PotionInfo"]
+position = Vector2(-20, 20)
+scale = Vector2(2.65625, 2.59375)
+texture = ExtResource("16_wj2t5")
+
+[node name="PotionCount" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/PotionInfo"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "0"
+
+[node name="HealthInfo" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/HealthInfo"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 32
+text = "Health:"
+
+[node name="HealtchPoints" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/HealthInfo"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[node name="LevelInfo" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+alignment = 2
+
+[node name="LevelLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/LevelInfo"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "                                                                                                                                                                                                        Level:"
+horizontal_alignment = 3
+vertical_alignment = 1
+
+[node name="LevelNo" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/LevelInfo"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "1"
+
+[node name="deadLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 97.0
+offset_bottom = 418.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.920641, 0.608684)
+theme = ExtResource("12_53iuu")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 35
+theme_override_font_sizes/font_size = 70
+text = "NIE ZYJESZ
+		R - RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

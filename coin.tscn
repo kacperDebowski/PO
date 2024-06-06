@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcswso7qbbvig"]
+
+[ext_resource type="Script" path="res://coin.gd" id="1_ca8rt"]
+[ext_resource type="Texture2D" uid="uid://dpr4cib0k8ve6" path="res://assets/tileset/items and trap_animation/coin/coin_1.png" id="1_w36nm"]
+[ext_resource type="Texture2D" uid="uid://desx522t1igax" path="res://assets/tileset/items and trap_animation/coin/coin_2.png" id="2_jxqla"]
+[ext_resource type="Texture2D" uid="uid://b46i8jy5tklci" path="res://assets/tileset/items and trap_animation/coin/coin_3.png" id="3_115ag"]
+[ext_resource type="Texture2D" uid="uid://e2dv4clw4svk" path="res://assets/tileset/items and trap_animation/coin/coin_4.png" id="4_jrf4x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asikf"]
+atlas = ExtResource("1_w36nm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf4w3"]
+atlas = ExtResource("2_jxqla")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mijga"]
+atlas = ExtResource("3_115ag")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1n54"]
+atlas = ExtResource("4_jrf4x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t0fko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asikf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf4w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mijga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1n54")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lw5q4"]
+radius = 5.0
+
+[node name="Coin" type="Area2D"]
+script = ExtResource("1_ca8rt")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
+sprite_frames = SubResource("SpriteFrames_t0fko")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_lw5q4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

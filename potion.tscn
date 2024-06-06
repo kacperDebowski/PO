@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmoy0q6l4bty4"]
+
+[ext_resource type="Texture2D" uid="uid://cusfnkluqjtrd" path="res://assets/tileset/items and trap_animation/flasks/flasks_4_1.png" id="1_hrb15"]
+[ext_resource type="Script" path="res://potion.gd" id="1_ndtfm"]
+[ext_resource type="Texture2D" uid="uid://3ubcw6l2o1bs" path="res://assets/tileset/items and trap_animation/flasks/flasks_4_2.png" id="2_jw3t0"]
+[ext_resource type="Texture2D" uid="uid://03i4fgyhxqre" path="res://assets/tileset/items and trap_animation/flasks/flasks_4_3.png" id="3_087kh"]
+[ext_resource type="Texture2D" uid="uid://dxgdy5cw1emeb" path="res://assets/tileset/items and trap_animation/flasks/flasks_4_4.png" id="4_w5ow7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yabw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hrb15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jw3t0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_087kh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w5ow7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81673"]
+size = Vector2(10, 11)
+
+[node name="Potion" type="Area2D"]
+script = ExtResource("1_ndtfm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yabw7")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_81673")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

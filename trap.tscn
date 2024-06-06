@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://hst1jy7rwugu"]
+
+[ext_resource type="Script" path="res://trap.gd" id="1_8a1s5"]
+[ext_resource type="Texture2D" uid="uid://bmfgi60ys6vl8" path="res://assets/tileset/items and trap_animation/peaks/peaks_3.png" id="1_tnip3"]
+[ext_resource type="Texture2D" uid="uid://doyyexwnbyk3" path="res://assets/tileset/items and trap_animation/peaks/peaks_4.png" id="2_q20vq"]
+[ext_resource type="Texture2D" uid="uid://cjwjhguqys0wn" path="res://assets/tileset/items and trap_animation/peaks/peaks_2.png" id="3_w6bsj"]
+[ext_resource type="Texture2D" uid="uid://vcirolfdcanl" path="res://assets/tileset/items and trap_animation/peaks/peaks_1.png" id="4_605wb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jeutv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tnip3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_q20vq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w6bsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_605wb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmact"]
+size = Vector2(10, 13)
+
+[sub_resource type="Animation" id="Animation_mkf13"]
+resource_name = "new_animation"
+length = 5.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.5, 4, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:canDamage")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 3.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3mkwa"]
+_data = {
+"TrapAnimation": SubResource("Animation_mkf13")
+}
+
+[node name="Trap" type="Area2D"]
+script = ExtResource("1_8a1s5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jeutv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_bmact")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3mkwa")
+}
+autoplay = "TrapAnimation"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

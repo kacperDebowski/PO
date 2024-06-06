@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlwkwe88837fa"]
+
+[ext_resource type="Script" path="res://GoldKey.gd" id="1_mof2l"]
+[ext_resource type="Texture2D" uid="uid://dy1hesvs4ru25" path="res://assets/tileset/items and trap_animation/keys/keys_2_1.png" id="1_w3xmy"]
+[ext_resource type="Texture2D" uid="uid://bsxybq5f4r43d" path="res://assets/tileset/items and trap_animation/keys/keys_2_2.png" id="2_chhlk"]
+[ext_resource type="Texture2D" uid="uid://bul6u2cofchgo" path="res://assets/tileset/items and trap_animation/keys/keys_2_3.png" id="3_rhfdg"]
+[ext_resource type="Texture2D" uid="uid://ognegab7fbci" path="res://assets/tileset/items and trap_animation/keys/keys_2_4.png" id="4_5cs5y"]
+[ext_resource type="Texture2D" uid="uid://d0y8osvnecyb1" path="res://assets/tileset/items and trap_animation/keys/keys_1_1.png" id="5_8fkuh"]
+[ext_resource type="Texture2D" uid="uid://nsrxw3nqghsv" path="res://assets/tileset/items and trap_animation/keys/keys_1_2.png" id="6_81b0w"]
+[ext_resource type="Texture2D" uid="uid://d1pywymaqd3y1" path="res://assets/tileset/items and trap_animation/keys/keys_1_3.png" id="7_dxn3s"]
+[ext_resource type="Texture2D" uid="uid://dbsjieu1f2mih" path="res://assets/tileset/items and trap_animation/keys/keys_1_4.png" id="8_i0xsf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fe5c7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w3xmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_chhlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rhfdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5cs5y")
+}],
+"loop": true,
+"name": &"srebrny",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8fkuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_81b0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dxn3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i0xsf")
+}],
+"loop": true,
+"name": &"zloty",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bcmj"]
+size = Vector2(11, 8)
+
+[node name="GoldKey" type="Area2D"]
+script = ExtResource("1_mof2l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_fe5c7")
+animation = &"srebrny"
+autoplay = "zloty"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_1bcmj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cchegf0gg61mx"]
+
+[ext_resource type="Script" path="res://GoldDoors.gd" id="1_bunxa"]
+[ext_resource type="Texture2D" uid="uid://suq1tkoa0brv" path="res://assets/tileset/Dungeon_Tileset.png" id="2_teq2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgjkg"]
+atlas = ExtResource("2_teq2a")
+region = Rect2(96, 48, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8frx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgjkg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tld3"]
+size = Vector2(32, 16)
+
+[node name="GoldDoors" type="Area2D"]
+script = ExtResource("1_bunxa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 0, 1)
+sprite_frames = SubResource("SpriteFrames_8frx7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8tld3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
