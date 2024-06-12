@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cchegf0gg61mx"]
+[gd_scene load_steps=8 format=3 uid="uid://cchegf0gg61mx"]
 
 [ext_resource type="Script" path="res://GoldDoors.gd" id="1_bunxa"]
 [ext_resource type="Texture2D" uid="uid://suq1tkoa0brv" path="res://assets/tileset/Dungeon_Tileset.png" id="2_teq2a"]
@@ -18,8 +18,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y571v"]
+size = Vector2(32, 30)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4hwpf"]
+resource_local_to_scene = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tld3"]
-size = Vector2(32, 16)
+size = Vector2(32, 37)
 
 [node name="GoldDoors" type="Area2D"]
 script = ExtResource("1_bunxa")
@@ -29,6 +35,14 @@ self_modulate = Color(1, 1, 0, 1)
 sprite_frames = SubResource("SpriteFrames_8frx7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_y571v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_4hwpf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_8tld3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

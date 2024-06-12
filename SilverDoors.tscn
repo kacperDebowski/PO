@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdnkn6hh63jpl"]
+[gd_scene load_steps=7 format=3 uid="uid://cdnkn6hh63jpl"]
 
 [ext_resource type="Script" path="res://SilverDoors.gd" id="1_x0s8m"]
 [ext_resource type="Texture2D" uid="uid://suq1tkoa0brv" path="res://assets/tileset/Dungeon_Tileset.png" id="1_yl7ix"]
@@ -19,7 +19,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8ond"]
-size = Vector2(32, 16)
+size = Vector2(32, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwdv0"]
+size = Vector2(32, 26)
 
 [node name="SilverDoors" type="Area2D"]
 script = ExtResource("1_x0s8m")
@@ -29,6 +32,13 @@ sprite_frames = SubResource("SpriteFrames_ox61e")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_w8ond")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_qwdv0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,122 @@
+[gd_scene load_steps=3 format=3 uid="uid://blr5igibwrrqo"]
+
+[ext_resource type="Script" path="res://controls.gd" id="1_isgj8"]
+[ext_resource type="Theme" uid="uid://smqfvs5ksuj5" path="res://assets/main/player.tres" id="1_mu1ed"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mu1ed")
+script = ExtResource("1_isgj8")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 116.0
+offset_right = 888.0
+offset_bottom = 573.0
+tooltip_text = "STEROWANIE
+"
+tab_alignment = 1
+
+[node name="STEROWANIE" type="Label" parent="TabContainer"]
+layout_mode = 2
+
+[node name="UP" type="Label" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 181.0
+offset_right = 474.0
+offset_bottom = 211.0
+text = "RUCH W GÓRĘ
+"
+
+[node name="DOWN" type="Label" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 225.0
+offset_right = 474.0
+offset_bottom = 255.0
+text = "RUCH W DÓŁ
+"
+
+[node name="RIGHT" type="Label" parent="."]
+layout_mode = 2
+offset_left = 300.0
+offset_top = 268.0
+offset_right = 540.0
+offset_bottom = 298.0
+text = "RUCH W PRAWO"
+
+[node name="LEFT" type="Label" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 315.0
+offset_right = 476.0
+offset_bottom = 345.0
+text = "RUCH W LEWO
+"
+
+[node name="USE" type="Label" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 360.0
+offset_right = 626.0
+offset_bottom = 390.0
+text = "UŻYCIE MIKSTURY LECZENIA
+"
+
+[node name="BackButton" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = 505.0
+offset_top = 486.0
+offset_right = 644.0
+offset_bottom = 542.0
+text = "Wróć"
+
+[node name="upButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 181.0
+offset_right = 850.0
+offset_bottom = 219.0
+text = "W"
+
+[node name="downButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 225.0
+offset_right = 850.0
+offset_bottom = 263.0
+text = "S"
+
+[node name="rightButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 268.0
+offset_right = 850.0
+offset_bottom = 306.0
+text = "D"
+
+[node name="leftButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 311.0
+offset_right = 850.0
+offset_bottom = 349.0
+text = "A"
+
+[node name="useButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 355.0
+offset_right = 850.0
+offset_bottom = 393.0
+text = "SPACJA"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
